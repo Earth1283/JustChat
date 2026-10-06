@@ -1,0 +1,11 @@
+name: JustChat
+version: '${version}'
+
+main: io.github.Earth1283.justChat.JustChat
+paper-plugin-loader: io.github.Earth1283.justChat.JustChatLoader
+api-version: '1.20.6'
+load: STARTUP
+folia-supported: true
+description: A resilient, open-source chat formater for Spigot, Paper, and Folia
+
+authors: [ Earth1283 ]
