@@ -1,11 +1,60 @@
 name: JustChat
 version: '${version}'
-
 main: io.github.Earth1283.justChat.JustChat
-paper-plugin-loader: io.github.Earth1283.justChat.JustChatLoader
-api-version: '1.20.6'
-load: STARTUP
+api-version: '1.20'
 folia-supported: true
-description: A resilient, open-source chat formater for Spigot, Paper, and Folia
-
+description: A resilient chat formatter for Spigot, Paper and Folia
 authors: [ Earth1283 ]
+softdepend: [ LuckPerms, Vault, PlaceholderAPI ]
+
+commands:
+  justchat:
+    description: JustChat status, diagnostics, reload and chat color
+    usage: /<command> <status|doctor|reload|version|color>
+    aliases: [ jc ]
+  msg:
+    description: Send a private message
+    usage: /<command> <player> <message>
+    aliases: [ m, whisper, pm ]
+  tell:
+    description: Send a private message
+    usage: /<command> <player> <message>
+  w:
+    description: Send a private message
+    usage: /<command> <player> <message>
+  reply:
+    description: Reply to the last player you messaged or who messaged you
+    usage: /<command> <message>
+    aliases: [ r ]
+  ignore:
+    description: Stop seeing a player's JustChat messages
+    usage: /<command> <player>
+  unignore:
+    description: Stop ignoring a player
+    usage: /<command> <player>
+  ignorelist:
+    description: List the players you are ignoring
+    usage: /<command>
+
+permissions:
+  justchat.admin:
+    description: Use /justchat status, doctor, reload and version
+    default: op
+  justchat.msg:
+    description: Send private messages
+    default: true
+  justchat.ignore:
+    description: Ignore other players
+    default: true
+  justchat.ignore.bypass:
+    description: Cannot be ignored by other players
+    default: op
+  justchat.color:
+    description: Choose a preferred chat color with /justchat color
+    default: op
+  justchat.chat.color:
+    description: Use & color codes in chat and private messages
+    default: op
+  justchat.chat.minimessage:
+    description: Use MiniMessage color and decoration tags in chat and private messages
+    default: op

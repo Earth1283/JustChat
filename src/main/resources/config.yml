@@ -1,0 +1,55 @@
+# JustChat configuration
+# Missing keys use the built-in default. An invalid file is rejected as a whole and the
+# previous valid configuration stays active (see /justchat doctor).
+
+# Print per-phase startup timings instead of a single line.
+debug: false
+
+chat:
+  enabled: true
+  # MiniMessage formatting fully supported. Built-in placeholders:
+  #   <player> account name   <username> account name   <display_name> display name
+  #   <prefix> <suffix> <group>   <world>   <uuid>   <message>
+  # PlaceholderAPI placeholders such as %player_ping% work when PlaceholderAPI is installed.
+  # Placeholders cannot be placed inside <gradient> or <rainbow>.
+  # Formatting playground: https://webui.advntr.dev/
+  format: "<prefix><player> <dark_gray>»</dark_gray> <message>"
+
+private-messages:
+  enabled: true
+  # In addition the placeholders above (which describe the sender), these are available:
+  #   <sender> <receiver> <receiver_display_name> <receiver_prefix> <receiver_suffix> <receiver_group>
+  # Similarly, MiniMessage is supported. You can access the playground here: https://webui.advntr.dev/
+  sender-format: "<gray>[You → <receiver>]</gray> <message>"
+  receiver-format: "<gray>[<sender> → You]</gray> <message>"
+
+# Ignoring only affects JustChat's own public chat and private messages.
+# It cannot hide messages sent by other plugins.
+ignore:
+  enabled: true
+
+# Inline and/or MiniMessage formatting (perms: justchat.chat.color, justchat.chat.minimessage)
+# and the /justchat color preference (justchat.color).
+colors:
+  enabled: true
+
+placeholders:
+  # What to show for a %placeholder% that cannot be resolved: KEEP the raw text, or EMPTY.
+  unresolved: KEEP
+
+# Used when no permissions plugin supplies a value and nothing is cached.
+metadata:
+  default-prefix: ""
+  default-suffix: ""
+  default-group: "default"
+
+continuity:
+  # Persist last-known prefixes/suffixes, ignore lists and color preferences in SQLite.
+  # When false they live in memory only and are lost on restart.
+  sqlite: true
+
+# Override any command feedback message. See the plugin documentation for the full list of keys.
+messages: {}
+
+# no touchy :)
+config-version: 1
